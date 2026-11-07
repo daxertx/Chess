@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/chess_project.files.classes.chess_piece" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/chess_project.files.classes.chess_piece" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfGame_move">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Game_move" type="tns:Game_move" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGame_move" nillable="true" type="tns:ArrayOfGame_move" />
+  <xs:complexType name="Game_move">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fromX" type="xs:int" />
+      <xs:element minOccurs="0" name="fromY" type="xs:int" />
+      <xs:element minOccurs="0" name="moved_twice" type="xs:boolean" />
+      <xs:element minOccurs="0" name="pieceType" type="tns:Chess_piece_type" />
+      <xs:element minOccurs="0" name="teamColor" type="tns:Team_color" />
+      <xs:element minOccurs="0" name="toX" type="xs:int" />
+      <xs:element minOccurs="0" name="toY" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Game_move" nillable="true" type="tns:Game_move" />
+  <xs:simpleType name="Chess_piece_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Pawn" />
+      <xs:enumeration value="Rook" />
+      <xs:enumeration value="Knight" />
+      <xs:enumeration value="Bishop" />
+      <xs:enumeration value="Queen" />
+      <xs:enumeration value="King" />
+      <xs:enumeration value="Empty" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Chess_piece_type" nillable="true" type="tns:Chess_piece_type" />
+  <xs:simpleType name="Team_color">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="White" />
+      <xs:enumeration value="Black" />
+      <xs:enumeration value="Empty" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Team_color" nillable="true" type="tns:Team_color" />
+</xs:schema>

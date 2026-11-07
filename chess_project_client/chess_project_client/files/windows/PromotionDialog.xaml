@@ -1,0 +1,28 @@
+<Window x:Class="chess_project_client.files.windows.PromotionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Choose Promotion Piece"
+        Width="320" Height="110"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+
+    <Grid Background="#1e1e2e">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Each button shows the piece image for the player's own color -->
+        <Button x:Name="QueenBtn"  Grid.Column="0" Click="Queen_Click"
+                Margin="6" Padding="4" Background="#313244" BorderThickness="0" Cursor="Hand"/>
+        <Button x:Name="RookBtn"   Grid.Column="1" Click="Rook_Click"
+                Margin="6" Padding="4" Background="#313244" BorderThickness="0" Cursor="Hand"/>
+        <Button x:Name="BishopBtn" Grid.Column="2" Click="Bishop_Click"
+                Margin="6" Padding="4" Background="#313244" BorderThickness="0" Cursor="Hand"/>
+        <Button x:Name="KnightBtn" Grid.Column="3" Click="Knight_Click"
+                Margin="6" Padding="4" Background="#313244" BorderThickness="0" Cursor="Hand"/>
+    </Grid>
+</Window>

@@ -1,0 +1,11 @@
+chess_project/files/ai_models/stockfish/*.exe
+bin/
+obj/
+
+
+
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

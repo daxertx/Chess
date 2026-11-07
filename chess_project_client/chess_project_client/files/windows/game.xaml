@@ -1,0 +1,65 @@
+﻿<Window x:Class="chess_project_client.files.windows.game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:chess_project_client.files.windows"
+        mc:Ignorable="d"
+        Title="Chess" Height="720" Width="720"
+        MinHeight="420" MinWidth="420"
+        WindowStartupLocation="CenterScreen"
+        Background="#262421">
+    <Grid>
+        <TextBlock x:Name="StatusText"
+                   Text="Waiting for opponent… start a second client"
+                   FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Foreground="#E8E6E3"/>
+
+        <!-- Viewbox keeps the board square and centred whatever the window size is -->
+        <Viewbox x:Name="boardBox" Margin="28" Stretch="Uniform" Visibility="Collapsed">
+            <Border Padding="18" CornerRadius="8" Background="#3A3734">
+                <Border.Effect>
+                    <DropShadowEffect Color="#000000" BlurRadius="28" ShadowDepth="0" Opacity="0.55"/>
+                </Border.Effect>
+
+                <!-- rank numbers on the left, file letters underneath, board in the corner -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="22"/>
+                        <ColumnDefinition Width="640"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="640"/>
+                        <RowDefinition Height="22"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel x:Name="rankLabels" Grid.Row="0" Grid.Column="0" Orientation="Vertical"/>
+                    <StackPanel x:Name="fileLabels" Grid.Row="1" Grid.Column="1" Orientation="Horizontal"/>
+
+                    <Grid x:Name="board" Grid.Row="0" Grid.Column="1" Width="640" Height="640">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Viewbox>
+    </Grid>
+</Window>

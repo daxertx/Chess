@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Phone_App.files.pages.Login"
+             Title="התחברות"
+             BackgroundColor="{StaticResource Primary}"
+             FlowDirection="RightToLeft">
+
+    <Grid Padding="24" VerticalOptions="Center">
+
+        <Border BackgroundColor="White"
+                Stroke="Transparent"
+                Padding="24"
+                HorizontalOptions="Center"
+                MaximumWidthRequest="420"
+                StrokeShape="RoundRectangle 20">
+            <VerticalStackLayout Spacing="18">
+
+                <Label Text="♞"
+                       FontSize="56"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Primary}" />
+
+                <Label Text="ברוכים הבאים"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Gray900}" />
+
+                <Label Text="התחברו כדי לראות את המשחקים שלכם"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Gray500}" />
+
+                <Border Stroke="{StaticResource Gray200}"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="8,0">
+                    <Entry Placeholder="שם משתמש"
+                           x:Name="username"
+                           TextColor="Black"
+                           FontSize="16"
+                           ClearButtonVisibility="WhileEditing" />
+                </Border>
+
+                <Border Stroke="{StaticResource Gray200}"
+                        StrokeShape="RoundRectangle 12"
+                        Padding="8,0">
+                    <Entry Placeholder="סיסמה"
+                           x:Name="password"
+                           IsPassword="True"
+                           TextColor="Black"
+                           FontSize="16"
+                           ClearButtonVisibility="WhileEditing" />
+                </Border>
+
+                <Button Text="התחברות"
+                        Clicked="try_Login"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="50"
+                        CornerRadius="12" />
+
+                <Button Text="הרשמה"
+                        Clicked="Register"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="50"
+                        CornerRadius="12" />
+            </VerticalStackLayout>
+        </Border>
+
+    </Grid>
+</ContentPage>

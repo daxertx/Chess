@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ChessService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/chess_project.files.classes.chess_piece" />
+      <xsd:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8733/ChessService/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/chess_project.files.classes" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IChessService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_JoinGameQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameQueue" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_JoinGameQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_JoinGameVsAi_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameVsAi" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_JoinGameVsAi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameVsAiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGameId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameId" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGameId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_LeaveGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGame" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_LeaveGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_IsWhitePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsWhitePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_IsWhitePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsWhitePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Posible_Moves_InputMessage">
+    <wsdl:part name="parameters" element="tns:Posible_Moves" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Posible_Moves_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Posible_MovesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_CanMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:CanMove" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_CanMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CanMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetMoveCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoveCount" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetMoveCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoveCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetMoveByIndex_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoveByIndex" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetMoveByIndex_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoveByIndexResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGameStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameStatus" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGameStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGameStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGamesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamesList" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetGamesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGamesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetReplayMoveCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReplayMoveCount" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_GetReplayMoveCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReplayMoveCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Get_Move_From_Replay_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Move_From_Replay" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Get_Move_From_Replay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_Move_From_ReplayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_Website_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login_Website" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_Website_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Login_WebsiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_Phone_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login_Phone" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_Login_Phone_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Login_PhoneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:ping" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:pingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_IsAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_IsAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IChessService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IChessService">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Register" message="tns:IChessService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/RegisterResponse" message="tns:IChessService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Login" message="tns:IChessService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/LoginResponse" message="tns:IChessService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGameQueue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/JoinGameQueue" message="tns:IChessService_JoinGameQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/JoinGameQueueResponse" message="tns:IChessService_JoinGameQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGameVsAi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/JoinGameVsAi" message="tns:IChessService_JoinGameVsAi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/JoinGameVsAiResponse" message="tns:IChessService_JoinGameVsAi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetGameId" message="tns:IChessService_GetGameId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetGameIdResponse" message="tns:IChessService_GetGameId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/LeaveGame" message="tns:IChessService_LeaveGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/LeaveGameResponse" message="tns:IChessService_LeaveGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsWhitePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/IsWhitePlayer" message="tns:IChessService_IsWhitePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/IsWhitePlayerResponse" message="tns:IChessService_IsWhitePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Posible_Moves">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Posible_Moves" message="tns:IChessService_Posible_Moves_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/Posible_MovesResponse" message="tns:IChessService_Posible_Moves_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CanMove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/CanMove" message="tns:IChessService_CanMove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/CanMoveResponse" message="tns:IChessService_CanMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetMoveCount" message="tns:IChessService_GetMoveCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetMoveCountResponse" message="tns:IChessService_GetMoveCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveByIndex">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetMoveByIndex" message="tns:IChessService_GetMoveByIndex_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetMoveByIndexResponse" message="tns:IChessService_GetMoveByIndex_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetGameStatus" message="tns:IChessService_GetGameStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetGameStatusResponse" message="tns:IChessService_GetGameStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetGamesList" message="tns:IChessService_GetGamesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetGamesListResponse" message="tns:IChessService_GetGamesList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplayMoveCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/GetReplayMoveCount" message="tns:IChessService_GetReplayMoveCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/GetReplayMoveCountResponse" message="tns:IChessService_GetReplayMoveCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Move_From_Replay">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Get_Move_From_Replay" message="tns:IChessService_Get_Move_From_Replay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/Get_Move_From_ReplayResponse" message="tns:IChessService_Get_Move_From_Replay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login_Website">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Login_Website" message="tns:IChessService_Login_Website_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/Login_WebsiteResponse" message="tns:IChessService_Login_Website_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login_Phone">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/Login_Phone" message="tns:IChessService_Login_Phone_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/Login_PhoneResponse" message="tns:IChessService_Login_Phone_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/ping" message="tns:IChessService_ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/pingResponse" message="tns:IChessService_ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/IsAdmin" message="tns:IChessService_IsAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/IsAdminResponse" message="tns:IChessService_IsAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IChessService/AddUser" message="tns:IChessService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IChessService/AddUserResponse" message="tns:IChessService_AddUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IChessService" type="tns:IChessService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGameQueue">
+      <soap:operation soapAction="http://tempuri.org/IChessService/JoinGameQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JoinGameVsAi">
+      <soap:operation soapAction="http://tempuri.org/IChessService/JoinGameVsAi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameId">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetGameId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LeaveGame">
+      <soap:operation soapAction="http://tempuri.org/IChessService/LeaveGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsWhitePlayer">
+      <soap:operation soapAction="http://tempuri.org/IChessService/IsWhitePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Posible_Moves">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Posible_Moves" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanMove">
+      <soap:operation soapAction="http://tempuri.org/IChessService/CanMove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveCount">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetMoveCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoveByIndex">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetMoveByIndex" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameStatus">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetGameStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGamesList">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetGamesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplayMoveCount">
+      <soap:operation soapAction="http://tempuri.org/IChessService/GetReplayMoveCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Move_From_Replay">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Get_Move_From_Replay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login_Website">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Login_Website" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login_Phone">
+      <soap:operation soapAction="http://tempuri.org/IChessService/Login_Phone" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://tempuri.org/IChessService/ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAdmin">
+      <soap:operation soapAction="http://tempuri.org/IChessService/IsAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IChessService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChessService">
+    <wsdl:port name="BasicHttpBinding_IChessService" binding="tns:BasicHttpBinding_IChessService">
+      <soap:address location="http://localhost:8733/ChessService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

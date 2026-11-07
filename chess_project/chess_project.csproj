@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4CE64B8A-40F7-4B7E-853E-ADFF220B9B6B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>chess_project</RootNamespace>
+    <AssemblyName>chess_project</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <!-- must stay x64: the Microsoft.ACE.OLEDB.12.0 driver installed on this machine
+         is 64-bit, and a 32-bit build cannot open the database at all -->
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <!-- x64 for the same reason as Debug -->
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.10.0.11\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ChessService.cs" />
+    <Compile Include="IChessService.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="files\userControl\Cube.xaml.cs">
+      <DependentUpon>Cube.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="files\ai_models\stockfish\AUTHORS" />
+    <None Include="files\ai_models\stockfish\CITATION.cff" />
+    <None Include="files\ai_models\stockfish\CONTRIBUTING.md" />
+    <None Include="files\ai_models\stockfish\README.md" />
+    <None Include="files\ai_models\stockfish\scripts\get_native_properties.sh" />
+    <None Include="files\ai_models\stockfish\scripts\net.sh" />
+    <None Include="files\ai_models\stockfish\src\incbin\UNLICENCE" />
+    <None Include="files\ai_models\stockfish\src\Makefile" />
+    <None Include="files\ai_models\stockfish\wiki\Advanced-topics.md" />
+    <None Include="files\ai_models\stockfish\wiki\Compiling-from-source.md" />
+    <None Include="files\ai_models\stockfish\wiki\Developers.md" />
+    <None Include="files\ai_models\stockfish\wiki\Download-and-usage.md" />
+    <None Include="files\ai_models\stockfish\wiki\Governance-and-responsibilities.md" />
+    <None Include="files\ai_models\stockfish\wiki\Home.md" />
+    <None Include="files\ai_models\stockfish\wiki\Regression-Tests.md" />
+    <None Include="files\ai_models\stockfish\wiki\Stockfish-FAQ.md" />
+    <None Include="files\ai_models\stockfish\wiki\Terminology.md" />
+    <None Include="files\ai_models\stockfish\wiki\UCI-&amp;-Commands.md" />
+    <None Include="files\ai_models\stockfish\wiki\Useful-data.md" />
+    <None Include="files\ai_models\stockfish\wiki\_Footer.md" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="files\database\chess.accdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="files\ai_models\stockfish\Copying.txt" />
+    <Content Include="files\ai_models\stockfish\src\benchmark.cpp" />
+    <Content Include="files\ai_models\stockfish\src\benchmark.h" />
+    <Content Include="files\ai_models\stockfish\src\bitboard.cpp" />
+    <Content Include="files\ai_models\stockfish\src\bitboard.h" />
+    <Content Include="files\ai_models\stockfish\src\engine.cpp" />
+    <Content Include="files\ai_models\stockfish\src\engine.h" />
+    <Content Include="files\ai_models\stockfish\src\evaluate.cpp" />
+    <Content Include="files\ai_models\stockfish\src\evaluate.h" />
+    <Content Include="files\ai_models\stockfish\src\history.h" />
+    <Content Include="files\ai_models\stockfish\src\incbin\incbin.h" />
+    <Content Include="files\ai_models\stockfish\src\main.cpp" />
+    <Content Include="files\ai_models\stockfish\src\memory.cpp" />
+    <Content Include="files\ai_models\stockfish\src\memory.h" />
+    <Content Include="files\ai_models\stockfish\src\misc.cpp" />
+    <Content Include="files\ai_models\stockfish\src\misc.h" />
+    <Content Include="files\ai_models\stockfish\src\movegen.cpp" />
+    <Content Include="files\ai_models\stockfish\src\movegen.h" />
+    <Content Include="files\ai_models\stockfish\src\movepick.cpp" />
+    <Content Include="files\ai_models\stockfish\src\movepick.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\features\full_threats.cpp" />
+    <Content Include="files\ai_models\stockfish\src\nnue\features\full_threats.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\features\half_ka_v2_hm.cpp" />
+    <Content Include="files\ai_models\stockfish\src\nnue\features\half_ka_v2_hm.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\layers\affine_transform.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\layers\affine_transform_sparse_input.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\layers\clipped_relu.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\layers\sqr_clipped_relu.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\network.cpp" />
+    <Content Include="files\ai_models\stockfish\src\nnue\network.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_accumulator.cpp" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_accumulator.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_architecture.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_common.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_feature_transformer.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_misc.cpp" />
+    <Content Include="files\ai_models\stockfish\src\nnue\nnue_misc.h" />
+    <Content Include="files\ai_models\stockfish\src\nnue\simd.h" />
+    <Content Include="files\ai_models\stockfish\src\numa.h" />
+    <Content Include="files\ai_models\stockfish\src\perft.h" />
+    <Content Include="files\ai_models\stockfish\src\position.cpp" />
+    <Content Include="files\ai_models\stockfish\src\position.h" />
+    <Content Include="files\ai_models\stockfish\src\score.cpp" />
+    <Content Include="files\ai_models\stockfish\src\score.h" />
+    <Content Include="files\ai_models\stockfish\src\search.cpp" />
+    <Content Include="files\ai_models\stockfish\src\search.h" />
+    <Content Include="files\ai_models\stockfish\src\shm.h" />
+    <Content Include="files\ai_models\stockfish\src\shm_linux.h" />
+    <Content Include="files\ai_models\stockfish\src\syzygy\tbprobe.cpp" />
+    <Content Include="files\ai_models\stockfish\src\syzygy\tbprobe.h" />
+    <Content Include="files\ai_models\stockfish\src\thread.cpp" />
+    <Content Include="files\ai_models\stockfish\src\thread.h" />
+    <Content Include="files\ai_models\stockfish\src\thread_win32_osx.h" />
+    <Content Include="files\ai_models\stockfish\src\timeman.cpp" />
+    <Content Include="files\ai_models\stockfish\src\timeman.h" />
+    <Content Include="files\ai_models\stockfish\src\tt.cpp" />
+    <Content Include="files\ai_models\stockfish\src\tt.h" />
+    <Content Include="files\ai_models\stockfish\src\tune.cpp" />
+    <Content Include="files\ai_models\stockfish\src\tune.h" />
+    <Content Include="files\ai_models\stockfish\src\types.h" />
+    <Content Include="files\ai_models\stockfish\src\uci.cpp" />
+    <Content Include="files\ai_models\stockfish\src\uci.h" />
+    <Content Include="files\ai_models\stockfish\src\ucioption.cpp" />
+    <Content Include="files\ai_models\stockfish\src\ucioption.h" />
+    <Content Include="files\ai_models\stockfish\stockfish-windows-x86-64-avx2.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="files\ai_models\stockfish\Top CPU Contributors.txt" />
+    <Resource Include="files\assets\chess_pieces\board.png" />
+    <Resource Include="files\assets\chess_pieces\chess-bishop-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-bishop-white.png" />
+    <Resource Include="files\assets\chess_pieces\chess-king-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-king-white.png" />
+    <Resource Include="files\assets\chess_pieces\chess-knight-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-knight-white.png" />
+    <Resource Include="files\assets\chess_pieces\chess-pawn-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-pawn-white.png" />
+    <Resource Include="files\assets\chess_pieces\chess-queen-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-queen-white.png" />
+    <Resource Include="files\assets\chess_pieces\chess-rook-black.png" />
+    <Resource Include="files\assets\chess_pieces\chess-rook-white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chess_Logic\Chess_Logic.csproj">
+      <Project>{8a8a6fdb-0b21-4050-82b9-bfeeec95b9b1}</Project>
+      <Name>Chess_Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8bd66a9b-1792-46a7-b06c-4e373371e1dd}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModel\ViewModel.csproj">
+      <Project>{e58a68a6-25e3-4ebf-b89c-7b7cdd745c97}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="files\userControl\Cube.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <!-- Copy cloudflared into bin\Debug so it ships with the server folder -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

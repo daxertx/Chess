@@ -1,0 +1,3 @@
+netsh http add urlacl url=http://+:8733/ChessService/ user="Everyone"
+
+taskkill /F /IM chess_project_client.exe

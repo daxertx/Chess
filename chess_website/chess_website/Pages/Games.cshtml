@@ -1,0 +1,67 @@
+@page
+@model GamesModel
+@{
+    ViewData["Title"] = "משחקים - שחמט";
+}
+
+<div dir="rtl">
+    <h1 class="display-5 mb-4 text-center">המשחקים של @Model.Username</h1>
+
+    @if (Model.ServerDown)
+    {
+        <div class="alert alert-danger col-md-6 mx-auto text-center">
+            לא ניתן להתחבר לשרת. ודא שהשרת פועל ורענן את הדף.
+        </div>
+    }
+    else if (Model.Games.Count == 0)
+    {
+        <p class="text-center text-muted">עדיין אין לך משחקים שמורים.</p>
+    }
+    else
+    {
+        <table class="table table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr class="text-center">
+                    <th>מנצח</th>
+                    <th>מפסיד</th>
+                    <th>מהלכים</th>
+                    <th>תאריך</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Games.Count; i++)
+                {
+                    var game = Model.Games[i];
+
+                    if (game.player_won == Model.Username)
+                    {
+                        <tr class="text-center table-success" style="background:lightgreen">
+                            <td>@game.player_won</td>
+                            <td>@game.player_lost</td>
+                            <td>@game.amount_of_moves</td>
+                            <td>@game.date</td>
+                        </tr>
+                    }
+                    else if (game.player_lost == Model.Username)
+                    {
+                        <tr class="text-center table-danger" style="background:lightcoral">
+                            <td>@game.player_won</td>
+                            <td>@game.player_lost</td>
+                            <td>@game.amount_of_moves</td>
+                            <td>@game.date</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="text-center">
+                            <td>@game.player_won</td>
+                            <td>@game.player_lost</td>
+                            <td>@game.amount_of_moves</td>
+                            <td>@game.date</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+</div>

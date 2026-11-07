@@ -1,0 +1,46 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "הרשמה - שחמט";
+}
+
+<div class="text-center" dir="rtl">
+    @if (Model.Registered)
+    {
+        <h1 class="display-4 text-success">נרשמת בהצלחה, @Model.Username!</h1>
+        <p class="lead">החשבון נוצר. אפשר להתחבר עכשיו.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" asp-page="/Index">מעבר להתחברות</a>
+    }
+    else
+    {
+        <h1 class="display-4 mb-4">הרשמה לאתר השחמט</h1>
+
+        @if (ViewData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger col-md-4 mx-auto mb-3">@ViewData["ErrorMessage"]</div>
+        }
+
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <form method="post" class="border p-4 shadow-sm rounded bg-light text-right">
+                    <div class="form-group mb-3">
+                        <label for="usern" class="form-label font-weight-bold">שם משתמש:</label>
+                        <input type="text" asp-for="Username" id="usern" class="form-control" required />
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="pass" class="form-label font-weight-bold">סיסמה:</label>
+                        <input type="password" asp-for="Password" id="pass" class="form-control" required />
+                    </div>
+
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a class="btn btn-secondary px-4" asp-page="/Index">חזרה</a>
+                        <button type="submit" class="btn btn-primary px-4">הרשמה</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+</div>
